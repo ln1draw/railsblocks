@@ -1,0 +1,23 @@
+<h1>Block colors</h1>
+
+
+  <tbody>
+    <% @blocks.each do |block| %>
+      <div>
+        <tr>
+          <%= form_for(block, html: {class: "left"}) do |f| %>
+            <div class="color-holder">
+              <% @colors.each do |color| %>
+                <td><%= f.label color %><%= f.radio_button :color, color %></td>
+              <% end %>
+              <%= f.submit %>
+            </div>
+          <% end %>
+          <div class="right">
+            <div class="block <%= block.color %>"></div>
+          </div>
+        </tr>
+      </div>
+    <% end %>
+  </tbody>
+</div>
